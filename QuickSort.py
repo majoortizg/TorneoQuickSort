@@ -68,23 +68,24 @@ def read_data_from_file(filename):
         data = file.read()
         elements = data.replace(',', ' ').split()
         try:
-            return [int(e) for e in elements]  # Intenta convertir a enteros
+            return [int(e) for e in elements]
         except ValueError:
-            return elements  # Si falla, trata los elementos como strings
+            return elements
 
 # Ejemplo de uso
 if __name__ == "__main__":
-    # Leer datos desde el archivo 'datos.txt'
+    # Leer datos desde el archivo datos.txt
     filename = 'datos.txt'
     elements = read_data_from_file(filename)
 
     print("Datos originales desde el archivo:")
     print(elements)
 
+    print("\nMétodo QuickSort:")
     # Convertir la lista en una lista enlazada
     linked_list_head = list_to_linked_list(elements)
 
-    print("\nLista enlazada original:")
+    print("Lista enlazada original:")
     print_linked_list(linked_list_head)
 
     # Ordenar la lista enlazada en orden ascendente
@@ -93,7 +94,7 @@ if __name__ == "__main__":
     print("\nLista enlazada ordenada ascendentemente:")
     print_linked_list(sorted_linked_list)
 
-    # Ahora, para ordenar en orden descendente
+    # Ordenar en orden descendente
     linked_list_head = list_to_linked_list(elements)
     sorted_linked_list_desc = quicksort_linked_list(linked_list_head, ascending=False)
 
